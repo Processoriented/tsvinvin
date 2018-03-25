@@ -26,3 +26,79 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.game {
+  padding-left: 10vw;
+  padding-right: 10vw;
+  padding-bottom: 10vh;
+}
+
+.board-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.cell, .cell-4, .cell-5, .cell-6, .cell-7, .cell-8, .cell-9 {
+  border: 1px solid #000;
+}
+
+.cell-4 {
+  --uh: calc(90vh - 150px);
+  --gh: calc(var(--uh) * .8);
+  max-width: calc(var(--gh) / 4);
+  width: calc(80vw / 4);
+  height: calc(var(--gh) / 4);
+  max-height: calc(80vw / 4);
+}
+
+.cell-5 {
+  --uh: calc(90vh - 150px);
+  --gh: calc(var(--uh) * .8);
+  max-width: calc(var(--gh) / 5);
+  width: calc(80vw / 5);
+  height: calc(var(--gh) / 5);
+  max-height: calc(80vw / 5);
+}
+
+.cell-6 {
+  --uh: calc(90vh - 150px);
+  --gh: calc(var(--uh) * .8);
+  max-width: calc(var(--gh) / 6);
+  width: calc(80vw / 6);
+  height: calc(var(--gh) / 6);
+  max-height: calc(80vw / 6);
+}
+
+.cell-7 {
+  --uh: calc(90vh - 150px);
+  --gh: calc(var(--uh) * .8);
+  max-width: calc(var(--gh) / 7);
+  width: calc(80vw / 7);
+  height: calc(var(--gh) / 7);
+  max-height: calc(80vw / 7);
+}
+
+.cell-8 {
+  --uh: calc(90vh - 150px);
+  --gh: calc(var(--uh) * .8);
+  max-width: calc(var(--gh) / 8);
+  width: calc(80vw / 8);
+  height: calc(var(--gh) / 8);
+  max-height: calc(80vw / 8);
+}
+
+.cell-9 {
+  --uh: calc(90vh - 150px);
+  --gh: calc(var(--uh) * .8);
+  max-width: calc(var(--gh) / 9);
+  width: calc(80vw / 9);
+  height: calc(var(--gh) / 9);
+  max-height: calc(80vw / 9);
+}
