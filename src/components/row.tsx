@@ -1,16 +1,27 @@
 import * as React from 'react';
 
 import Cell from './cell';
+import { PuzzleCell, PuzzleCage } from '../types';
 
 export interface Props {
-  size: number;
-  row: number;
+  cells: PuzzleCell[];
+  cages: PuzzleCage[];
 }
 
-const Row = ({ size, row }: Props) => (
+const getCage = (cell: PuzzleCell, cages: PuzzleCage[]): PuzzleCage | undefined => {
+  const matches = cages.filter(g => (!!g.cells)); 
+  return (!matches) ? undefined : matches[0];
+};
+
+const Row = ({ cells, cages }: Props) => (
   <div className="row">
-    { Array.apply(null, {length: size }).map((x: string, i: number) => (
-      <Cell size={size} row={row} column={i} black={((row + i) % size)} key={`R${row}C${i}`} />
+    { cells.map((cell: PuzzleCell) => (
+      <Cell
+        size={cells.length}
+        cell={cell}
+        cage={getCage(cell, cages)}
+        key={`R${cell.row}C${cell.column}`}
+      />
     ))}
   </div>
 );

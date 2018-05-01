@@ -1,8 +1,17 @@
 import * as React from 'react';
+
 import './App.css';
 import Game from './components/game';
+import { testCages, testCells } from './utility';
+import { Puzzle } from './types';
 
 const logo = require('./logo.svg');
+
+const testPuzzle: Puzzle = {
+  size: 9,
+  cells: testCells,
+  cages: testCages,
+};
 
 class App extends React.Component {
   render() {
@@ -15,7 +24,7 @@ class App extends React.Component {
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
-        <Game />
+        <Game puzzle={testPuzzle} />
       </div>
     );
   }

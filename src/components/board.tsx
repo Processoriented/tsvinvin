@@ -1,16 +1,18 @@
 import * as React from 'react';
 
 import Row from './row';
+import { Puzzle, PuzzleCell } from '../types';
 
 export interface Props {
-  size?: number;
+  puzzle: Puzzle;
 }
 
-const Board = ({ size = 9 }: Props) => (
+const Board = ({ puzzle }: Props) => (
   <div className="board-wrapper">
-    { Array.apply(null, { length: size }).map((x: string, i: number) => (
-      <Row size={size} row={i} key={`Row${i}`} />)
-    )}
+    { Array.apply([], { length: puzzle.size }).map((cells: PuzzleCell[], i: number) => {
+      puzzle.cells.filter(c => c.row === i).map(c => cells.push(c));
+      return (<Row cells={cells} cages={puzzle.cages} key={`Row${i}`} />);
+    })}
   </div>
 );
 

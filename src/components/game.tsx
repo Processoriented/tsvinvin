@@ -1,18 +1,21 @@
 import * as React from 'react';
 
 import Board from './board';
+import { Puzzle, PuzzleX } from '../types';
 
 export interface Props {
-  board?: string;
-  user?: string;
+  puzzle: Puzzle;
 }
 
-const Game = ({ board = 'default', user = 'Vincent' }: Props) => (
+const Game = (props: Props) => {
+  const x = new PuzzleX();
+  // tslint:disable-next-line:no-console
+  console.log(x);
+  return (
     <div className="game">
-      <div className="hello">Welcome {user}</div>
-      <div className="board">{board}</div>
-      <Board size={9} />
+      <Board puzzle={props.puzzle} />
     </div>
   );
+};
 
 export default Game;

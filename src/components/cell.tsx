@@ -1,17 +1,15 @@
 import * as React from 'react';
 
+import { PuzzleCell, PuzzleCage } from '../types';
+
 export interface Props {
-  size?: number;
-  row?: number;
-  column?: number;
-  greens?: number[];
-  reds?: number[];
-  black?: number;
-  solution?: number;
+  size: number;
+  cell: PuzzleCell;
+  cage?: PuzzleCage;
 }
 
-const Cell = ({ size, row, column, black }: Props) => (
-  <div className={`cell-${size}`}>{black}</div>
+const Cell = ({ size, cell, cage }: Props) => (
+  <div className={`cell-${size}`}>{cell.solution}</div>
 );
 
 export default Cell;
